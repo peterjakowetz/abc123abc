@@ -1,0 +1,9 @@
+To make in Linux, make sure the development packages for SDL, SDL_image and SDL_gfx are installed, then type "make"
+
+To make in Windows, try the above with mingw32
+
+Running simulation: run the sim executable with the maze image as the first parameter:
+    Linux:	./sim maze1.png
+    Windows:	sim maze1.png
+
+

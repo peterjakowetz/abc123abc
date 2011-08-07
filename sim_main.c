@@ -12,11 +12,17 @@
 
 int main(int argc, char* argv[])
 {
+    if (argc < 2)
+    {
+	printf("Usage: %s <maze image>\n", argv[0]);
+	return 1;
+    }
+    
     SDL_Init(SDL_INIT_VIDEO);
     IMG_Init(IMG_INIT_PNG);
     
     SDL_Surface* screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, 0);
-    SDL_Surface* maze = IMG_Load("maze1.png");
+    SDL_Surface* maze = IMG_Load(argv[1]);
     if (maze == NULL) printf("NULL MAZE\n");
     
     setScaleFactor(100);
