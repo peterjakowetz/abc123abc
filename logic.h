@@ -17,6 +17,11 @@ void doLogicStep (Bot* bot)
 	bot->leftSpeed = 1;
 	bot->rightSpeed = -1;
     }
+    else if (bot->leftSensor == BLACK && bot->rightSensor == BLACK)
+    {
+	bot->leftSpeed = 1;
+	bot->rightSpeed = 1;
+    }
     
     
 }

@@ -6,8 +6,8 @@
 //Include logic after everything else for lazy reasons
 #include "logic.h"
 
-#define SCREEN_WIDTH 1024
-#define SCREEN_HEIGHT 768
+#define SCREEN_WIDTH 640
+#define SCREEN_HEIGHT 480
 
 
 int main(int argc, char* argv[])
@@ -30,8 +30,8 @@ int main(int argc, char* argv[])
     
     Bot bot;
     bot.done = 0;
-    bot.posX = 2.5;
-    bot.posY = 8.0;
+    bot.posX = 1.5;
+    bot.posY = 5.0;
     bot.leftSpeed = 255;
     bot.rightSpeed = 128;
     

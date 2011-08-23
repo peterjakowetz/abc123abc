@@ -15,11 +15,12 @@ SensorValue readSensor(SensorPosition pos, void* vbot)
     else if (pos == SENSOR_CENTRE) sensor = getTransformedPoint(0, -BOT_SENSOR_DIST_FORWARD);
     else if (pos == SENSOR_RIGHT) sensor = getTransformedPoint(BOT_SENSOR_DIST_SIDE, -BOT_SENSOR_DIST_FORWARD);
     
-    if (sensor.x < 0 || sensor.x > bot->screen->w || sensor.y < 0 || sensor.y > bot->screen->h) return WHITE;
+    if (maze == NULL || sensor.x < 0 || sensor.x > bot->maze->w || sensor.y < 0 || sensor.y > bot->maze->h) return WHITE;
     
     Uint32 pixel = *((Uint32*)(maze->pixels + maze->format->BytesPerPixel*((int)(sensor.x) + (int)(sensor.y)*maze->w)));
     
     Uint8 r,g,b;
+    //sprintf("Maze: %d bpp, (%dx%d)\n", maze->format->BytesPerPixel, maze->w, maze->h);
     SDL_GetRGB(pixel, maze->format, &r,&g,&b);
     
     if (r < 20) return BLACK;
