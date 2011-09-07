@@ -6,8 +6,8 @@
 //Include logic after everything else for lazy reasons
 #include "logic.h"
 
-#define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 480
+#define SCREEN_WIDTH 1024
+#define SCREEN_HEIGHT 768
 
 
 int main(int argc, char* argv[])
@@ -30,10 +30,10 @@ int main(int argc, char* argv[])
     
     Bot bot;
     bot.done = 0;
-    bot.posX = 1.5;
-    bot.posY = 5.0;
-    bot.leftSpeed = 255;
-    bot.rightSpeed = 128;
+    bot.posX = 2.5;
+    bot.posY = 8.0;
+    bot.leftSpeed = 127;
+    bot.rightSpeed = 127;
     
     bot.rotation = 0;
     bot.screen = screen;
@@ -61,7 +61,7 @@ int main(int argc, char* argv[])
 	bot.centreSensor = readSensor(SENSOR_CENTRE, &bot);
 	bot.rightSensor = readSensor(SENSOR_RIGHT, &bot);
     
-	doLogicStep(&bot);
+	doLogicStep(&bot, ticks-lastTicks);
 	
 	simBotStep(&bot, (double)(ticks-lastTicks)/1000.0);
 	

@@ -7,3 +7,6 @@ Running simulation: run the sim executable with the maze image as the first para
     Windows:	sim maze1.png
 
 
+To program in avrdude: 'sudo avrdude -p m8 -c bsd -D -U flash:w:main.hex'
+
+In windows use something else, programmer type is "BSD"

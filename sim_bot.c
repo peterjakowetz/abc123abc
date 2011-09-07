@@ -3,9 +3,13 @@
 
 void simBotStep(Bot* bot, double stepSize)
 {
-    double avgSpeed = (bot->leftSpeed + bot->rightSpeed) /2;
+    double leftSpeed = (double)bot->leftSpeed/127.0;
+    double rightSpeed = (double)bot->rightSpeed/127.0;
     
-    bot->rotation += stepSize*(bot->leftSpeed - bot->rightSpeed);
+    
+    double avgSpeed = (leftSpeed + rightSpeed) /2;
+    
+    bot->rotation += stepSize*(leftSpeed - rightSpeed);
     
     bot->posY += -cos(bot->rotation) * stepSize * avgSpeed;
     bot->posX += sin(bot->rotation) * stepSize * avgSpeed;
