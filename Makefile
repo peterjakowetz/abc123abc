@@ -4,8 +4,8 @@ SIM_CC = gcc
 CCFLAGS = -mmcu=atmega8 -Wall -Os
 CC = avr-gcc
 
-.PHONY: sim
-default: sim main.hex
+.PHONY: default
+default: main.hex
 
 .PHONY: clean
 clean:
@@ -26,11 +26,17 @@ sim_bot.o: sim_bot.c sim_bot.h
 bot.o: bot.c bot.h
 	$(CC) $(CCFLAGS) -c bot.c -o bot.o
 
+pwm.o: pwm.c pwm.h
+	$(CC) $(CCFLAGS) -c pwm.c -o pwm.o
+
+sensor.o: sensor.c sensor.h
+	$(CC) $(CCFLAGS) -c sensor.c -o sensor.o
+
 main.o: main.c logic.h bot.h bot.c
 	$(CC) $(CCFLAGS) -c main.c -o main.o
 
-main.elf: main.o bot.o
-	$(CC) $(CCFLAGS) main.o bot.o -o main.elf
+main.elf: main.o bot.o pwm.o sensor.o
+	$(CC) $(CCFLAGS) main.o bot.o pwm.o sensor.o -o main.elf
 
 main.hex: main.elf
 	avr-objcopy -j .text -j .data -O ihex main.elf main.hex
