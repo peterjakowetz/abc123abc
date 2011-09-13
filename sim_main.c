@@ -30,19 +30,25 @@ int main(int argc, char* argv[])
     
     Bot bot;
     bot.done = 0;
-    bot.posX = 2.5;
-    bot.posY = 8.0;
+    bot.posX = 1.6;
+    bot.posY = 3.5;
     bot.leftSpeed = 127;
     bot.rightSpeed = 127;
     
     bot.rotation = 0;
     bot.screen = screen;
     bot.maze = maze;
+	
+	bot.lastlogiccheck = 0;
+	bot.checkdelay = 0;
+	bot.uturn = 0;
+	bot.lastturn = 0;
     
     readSensor(SENSOR_LEFT, &bot);
     readSensor(SENSOR_CENTRE, &bot);
     readSensor(SENSOR_RIGHT, &bot);
     
+	SDL_Event event;
     
     setMaze(maze);
     clearScreen(screen);
@@ -54,6 +60,14 @@ int main(int argc, char* argv[])
     
     while (!bot.done)
     {
+	  
+	  while (SDL_PollEvent(&event))
+	  {
+		if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_RETURN)
+		{
+		  bot.done = 1;
+		}
+	  }
 	
 	Uint32 ticks = SDL_GetTicks();
 	

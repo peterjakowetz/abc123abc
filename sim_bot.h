@@ -4,8 +4,12 @@
 #include "sensor.h"
 #include "SDL/SDL.h"
 
-#define BOT_SENSOR_DIST_FORWARD 0.30
-#define BOT_SENSOR_DIST_SIDE 0.15
+#define BOT_SENSOR_DIST_FORWARD 0.40
+#define BOT_SENSOR_DIST_SIDE 0.12
+
+#define LEFT 1
+#define RIGHT 2
+#define TURNAOUND 3
 
 
 typedef unsigned char uint8_t;
@@ -26,6 +30,11 @@ struct Bot
     
     SDL_Surface* screen;
     SDL_Surface* maze;
+	
+	int lastlogiccheck;
+	int checkdelay;
+	int uturn;
+	int lastturn;
 
 };
 
