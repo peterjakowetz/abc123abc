@@ -5,7 +5,7 @@
 #include "SDL/SDL.h"
 
 #define BOT_SENSOR_DIST_FORWARD 0.40
-#define BOT_SENSOR_DIST_SIDE 0.12
+#define BOT_SENSOR_DIST_SIDE 0.13
 
 #define LEFT 1
 #define RIGHT 2
@@ -35,6 +35,7 @@ struct Bot
 	int checkdelay;
 	int uturn;
 	int lastturn;
+	int checkright;
 
 };
 

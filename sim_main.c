@@ -30,8 +30,8 @@ int main(int argc, char* argv[])
     
     Bot bot;
     bot.done = 0;
-    bot.posX = 1.6;
-    bot.posY = 3.5;
+    bot.posX = 1.1;
+    bot.posY = 5;
     bot.leftSpeed = 127;
     bot.rightSpeed = 127;
     
@@ -43,6 +43,7 @@ int main(int argc, char* argv[])
 	bot.checkdelay = 0;
 	bot.uturn = 0;
 	bot.lastturn = 0;
+	bot.checkright = 0;
     
     readSensor(SENSOR_LEFT, &bot);
     readSensor(SENSOR_CENTRE, &bot);

@@ -74,15 +74,15 @@ void drawBot(Bot* bot)
     setRotationMatrix(bot->rotation);
     
     
-    Point chassis1 = getTransformedPoint(-0.2,.26);
-    Point chassis2 = getTransformedPoint(0.2,.26);
-    Point chassis3 = getTransformedPoint(0.2,-.26);
-    Point chassis4 = getTransformedPoint(-0.2,-.26);
+    Point chassis1 = getTransformedPoint(-0.15,.195);
+    Point chassis2 = getTransformedPoint(0.15,.195);
+    Point chassis3 = getTransformedPoint(0.15,-.195);
+    Point chassis4 = getTransformedPoint(-0.15,-.195);
     
-    Point leftAxis1 = getTransformedPoint(-0.2,0);
-    Point leftAxis2 = getTransformedPoint(-.26,0);
-    Point rightAxis1 = getTransformedPoint(0.2,0);
-    Point rightAxis2 = getTransformedPoint(.26,0);
+    Point leftAxis1 = getTransformedPoint(-0.15,0);
+    Point leftAxis2 = getTransformedPoint(-.195,0);
+    Point rightAxis1 = getTransformedPoint(0.15,0);
+    Point rightAxis2 = getTransformedPoint(.195,0);
     
     Point sensorLeft = getTransformedPoint(-BOT_SENSOR_DIST_SIDE, -BOT_SENSOR_DIST_FORWARD);
     Point sensorCentre = getTransformedPoint(0, -BOT_SENSOR_DIST_FORWARD);
